@@ -74,7 +74,10 @@ func HttpPostJson(urlStr string, postData map[string]interface{}) (map[string]in
 	return getRequestData(req)
 }
 
-//http post JSON 数据,返回一个 string 数据
+//HttpPostJsonString
+/*
+ * http post JSON 数据,返回一个 string 数据
+ */
 func HttpPostJsonString(urlStr string, postData map[string]interface{}) (string, error) {
 	b, err := json.Marshal(postData)
 	if err != nil {
@@ -88,7 +91,10 @@ func HttpPostJsonString(urlStr string, postData map[string]interface{}) (string,
 	return getRequestString(req)
 }
 
-//http post JSON 数据,返回一个 []byte 数组
+//HttpPostJsonBytes
+/**
+ * http post JSON 数据,返回一个 []byte 数组
+ */
 func HttpPostJsonBytes(urlStr string, postData []byte) ([]byte, error) {
 	body := bytes.NewBuffer(postData)
 	req, err := http.Post(urlStr, "application/json;charset=utf-8", body)
@@ -98,7 +104,10 @@ func HttpPostJsonBytes(urlStr string, postData []byte) ([]byte, error) {
 	return getRequestBytes(req)
 }
 
-//http get 请求
+//HttpGet
+/*
+ * http get 请求
+ */
 func HttpGet(urlStr string) (string, error) {
 	req, err := http.Get(urlStr)
 	if err != nil {
@@ -108,7 +117,10 @@ func HttpGet(urlStr string) (string, error) {
 	return getRequestString(req)
 }
 
-//http get 请求
+//HttpGetBytes
+/*
+ * http get 请求
+ */
 func HttpGetBytes(urlStr string) ([]byte, error) {
 	req, err := http.Get(urlStr)
 	if err != nil {
